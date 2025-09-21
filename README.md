@@ -45,7 +45,7 @@ Sistema em Laravel para cadastrar produtos, atualizar estoque e preços, e receb
 
 5. **Configure banco de dados no `.env`:**
 
-    ```
+    ```arduino
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
@@ -64,4 +64,18 @@ Sistema em Laravel para cadastrar produtos, atualizar estoque e preços, e receb
 
     ```bash
     php artisan migrate
+    ```
+
+## 🖥 Executando o projeto local
+
+1. **Servidor local Laravel:**
+
+    ```bash
+    php artisan serve
+    ```
+
+2. **Acesse o painel:**
+
+    ```arduino
+    http://127.0.0.1:8000/dashboard
     ```
