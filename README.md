@@ -15,7 +15,7 @@ Sistema em Laravel para cadastrar produtos, atualizar estoque e preços, e receb
 
 ---
 
-## 🚀 Instalação
+## Instalação
 
 1. **Clone o projeto:**
 
@@ -66,7 +66,7 @@ Sistema em Laravel para cadastrar produtos, atualizar estoque e preços, e receb
     php artisan migrate
     ```
 
-## 🖥 Executando o projeto local
+## Executando o projeto local
 
 1. **Servidor local Laravel:**
 
