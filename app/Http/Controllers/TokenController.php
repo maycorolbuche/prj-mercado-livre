@@ -4,22 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Token;
 use Illuminate\Http\Request;
+use App\Services\MercadoLibreService;
 
 class TokenController extends Controller
 {
-    public function index()
+    public function index(MercadoLibreService $ml)
     {
+        $url_meli = $ml->redirectToMeli();
         $token = Token::where('user_id', auth()->id())->first();
-        return view('token.index', compact('token'));
+        return view('token.index', compact('token', 'url_meli'));
     }
 
     public function storeOrUpdate(Request $request)
     {
         $request->validate([
-            'code' => 'required|string',
-            'access_token' => 'required|string',
             'client_id' => 'required|string',
             'client_secret' => 'required|string',
+            'redirect_uri' => 'required|url',
         ]);
 
         $data = $request->all();

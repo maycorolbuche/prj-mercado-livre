@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(MercadoLibreService $ml)
     {
         $products = Product::orderBy('created_at', 'desc')->paginate(10);
 

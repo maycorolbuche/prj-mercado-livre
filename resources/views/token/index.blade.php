@@ -34,24 +34,6 @@
                     @csrf
 
                     <div class="mb-4">
-                        <label class="block font-medium">Código Estabelecimento</label>
-                        <input type="text" name="code" class="w-full border-gray-300 rounded""
-                            value="{{ old('code', $token->code ?? '') }}" required>
-                        @error('code')
-                            <div class="text-red-600 text-sm">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block font-medium">Access Token</label>
-                        <input type="text" name="access_token" class="w-full border-gray-300 rounded""
-                            value="{{ old('access_token', $token->access_token ?? '') }}" required>
-                        @error('access_token')
-                            <div class="text-red-600 text-sm">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-4">
                         <label class="block font-medium">Client ID</label>
                         <input type="text" name="client_id" class="w-full border-gray-300 rounded""
                             value="{{ old('client_id', $token->client_id ?? '') }}" required>
@@ -69,7 +51,21 @@
                         @enderror
                     </div>
 
+                    <div class="mb-4">
+                        <label class="block font-medium">URL de Redirecionamento</label>
+                        <input type="text" name="redirect_uri" class="w-full border-gray-300 rounded""
+                            value="{{ old('redirect_uri', $token->redirect_uri ?? '') }}" required>
+                        @error('redirect_uri')
+                            <div class="text-red-600 text-sm">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     <div class="flex justify-end gap-2">
+                        @if ($token)
+                            <a href="{{ $url_meli }}" class="bg-yellow-500 text-white px-4 py-2 rounded">
+                                Conectar ao Mercado Livre
+                            </a>
+                        @endif
                         <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">
                             {{ $token ? 'Atualizar' : 'Salvar' }}
                         </button>

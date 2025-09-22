@@ -4,6 +4,7 @@ namespace App\Services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use App\Models\Token;
 
 class MercadoLibreService
 {
@@ -22,6 +23,29 @@ class MercadoLibreService
                 'Content-Type'  => 'application/json',
             ] : []
         ]);
+    }
+
+    private function tokenConfig()
+    {
+        $tokenConfig = Token::where('user_id', auth()->id())->first();
+        return $tokenConfig;
+    }
+
+    public function redirectToMeli()
+    {
+        $token = $this->tokenConfig();
+
+        $clientId = $token->client_id ?? '';
+        $redirectUri = $token->redirect_uri ?? '';
+
+        $url = "https://auth.mercadolivre.com.br/authorization?" . http_build_query([
+            'response_type' => 'code',
+            'client_id'     => $clientId,
+            'redirect_uri'  => $redirectUri,
+            'state'         => csrf_token(),
+        ]);
+
+        return $url;
     }
 
     public function categories($siteId = 'MLB')

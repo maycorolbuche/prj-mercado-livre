@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
-            $table->string('access_token');
+            $table->string('code')->nullable();
+            $table->string('access_token')->nullable();
             $table->string('client_id');
             $table->string('client_secret');
+            $table->string('redirect_uri')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
