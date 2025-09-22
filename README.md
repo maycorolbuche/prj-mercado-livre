@@ -60,7 +60,7 @@ Sistema em Laravel para cadastrar produtos, atualizar estoque e preços, e receb
     php artisan key:generate
     ```
 
-7. **Rode migrations e seeds:**
+7. **Rode migrations:**
 
     ```bash
     php artisan migrate
@@ -78,4 +78,16 @@ Sistema em Laravel para cadastrar produtos, atualizar estoque e preços, e receb
 
     ```arduino
     http://127.0.0.1:8000/dashboard
+    ```
+
+3. **Cadastre os dados da API do Mercado livre:**
+
+    ```arduino
+    http://127.0.0.1:8000/token
+    ```
+
+4. **Cadastre os produtos:**
+
+    ```arduino
+    http://127.0.0.1:8000/products
     ```

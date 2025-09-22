@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\MercadoLibreOAuthController;
+use App\Http\Controllers\TokenController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,4 +18,7 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('products', ProductController::class)->names('products');
+
+    Route::get('/token', [TokenController::class, 'index'])->name('token.index');
+    Route::post('/token', [TokenController::class, 'storeOrUpdate'])->name('token.storeOrUpdate');
 });

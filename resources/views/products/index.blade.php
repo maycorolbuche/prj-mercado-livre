@@ -42,7 +42,7 @@
                         <tbody class="divide-y divide-gray-200">
                             @forelse($products as $product)
                                 <tr>
-                                    <td class="px-4 py-2">{{ $product->id }}</td>
+                                    <td class="px-4 py-2 text-end">{{ $product->id }}</td>
                                     <td class="px-4 py-2">{{ $product->name }}</td>
                                     <td class="px-4 py-2 text-end">R$ {{ number_format($product->price, 2, ',', '.') }}
                                     </td>
