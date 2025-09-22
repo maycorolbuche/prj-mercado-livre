@@ -86,6 +86,8 @@ Sistema em Laravel para cadastrar produtos, atualizar estoque e preços, e receb
     http://127.0.0.1:8000/token
     ```
 
+    Após cadastrar os dados, clique em "Conectar ao Mercado Livre"
+
 4. **Cadastre os produtos:**
 
     ```arduino
